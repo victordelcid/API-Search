@@ -1,0 +1,22 @@
+{
+  "name": "matching",
+  "version": "0.0.1",
+  "description": "Microservicio de Matching",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./dev/server.js"
+  },
+  "keywords": [
+    "Microservicio"
+  ],
+  "author": "Jbagur",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
