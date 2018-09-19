@@ -1,6 +1,6 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3006,
+  port = process.env.PORT || 3000,
   
   bodyParser = require('body-parser');
   
@@ -13,4 +13,3 @@ var express = require('express'),
    app.listen(port);
 
    console.log('Api inicializado en el puerto: ' + port);
-   
