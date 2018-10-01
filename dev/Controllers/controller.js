@@ -15,7 +15,7 @@ exports.searchAPI = function (req, res) {
         return;
     }
 
-    function Match(category) {
+    function pull(title) {
         http.get('https://api.publicapis.org/entries?title=' + title, (resp) => {
             let data = '';
             // A chunk of data has been received
@@ -24,7 +24,7 @@ exports.searchAPI = function (req, res) {
             });
             // The whole response has been received
             resp.on('end', () => {
-                console.log("Matching: http://18.212.105.67:3001/?category=" + category);
+                console.log("pull: https://api.publicapis.org/entries?title=" + title);
                 console.log("Response: " + data);
                 var myjson = JSON.parse(data);
                 if (typeof myjson == "undefined") {
