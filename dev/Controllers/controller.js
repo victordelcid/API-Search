@@ -27,7 +27,7 @@ exports.searchAPI = function (req, res) {
         if (response == null) {
             console.log("Key is not in cache");
             response = goToAPI(title);
-            console.log("API response: " + JSON.stringify(response)); 
+            console.log("API response: " + response); 
             client.set(title, response);
             res.status(200).json({
                 response
@@ -59,9 +59,9 @@ exports.searchAPI = function (req, res) {
                         message: "Undefined response"
                     })
                     return;
-                }                
+                }
+                return myjson;
             });
-
         }).on("error", (err) => {
             console.log("Error: " + err.message);
         });
