@@ -22,17 +22,17 @@ exports.searchAPI = function (req, res) {
         client.get(title, function (err, reply) {
             if (err) throw err;
             response = reply.toString();  
-            console.log("Redis response: " + response); 
-        });
-        if (response == null) {
-            console.log("Key is not in cache");
-            goToAPI(title);
-        } else {
-            console.log("Key is in cache");            
-            res.status(200).json({
-                response
-            });
-        }
+            console.log("Redis response: " + response);
+            if (response == null) {
+                console.log("Key is not in cache");
+                goToAPI(title);
+            } else {
+                console.log("Key is in cache");
+                res.status(200).json({
+                    response
+                });
+            }
+        });        
     }
 
     function goToAPI(title) {
