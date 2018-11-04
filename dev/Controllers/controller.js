@@ -24,15 +24,15 @@ exports.searchAPI = function (req, res) {
             response = reply.toString();                   
         });
         if (response == null) {
-            console.log("No está en caché");
+            console.log("Key is not in cache");
             response = goToAPI(title);
-            console.log("API response: " + response.toString()); 
+            console.log("API response: " + JSON.stringify()); 
             client.set(title, response);
             res.status(200).json({
                 response
             });
         } else {
-            console.log("Está en caché");
+            console.log("Key is in cache");
             console.log("Redis response: " + response); 
             res.status(200).json({
                 response
