@@ -28,9 +28,9 @@ exports.searchAPI = function (req, res) {
             } else {
                 console.log("Key is in cache");
                 console.log("Redis response: " + response);
-                let myjson = JSON.parse(reply);
+                response = JSON.parse(reply);
                 res.status(200).json({
-                    myjson
+                    response
                 });
             }
         });        
