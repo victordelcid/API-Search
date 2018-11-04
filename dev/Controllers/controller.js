@@ -26,12 +26,7 @@ exports.searchAPI = function (req, res) {
         });
         if (response == null) {
             console.log("Key is not in cache");
-            response = goToAPI(title);
-            console.log("API response: " + response); 
-            client.set(title, response);
-            res.status(200).json({
-                response
-            });
+            goToAPI(title);            
         } else {
             console.log("Key is in cache");            
             res.status(200).json({
@@ -60,7 +55,11 @@ exports.searchAPI = function (req, res) {
                     })
                     return;
                 }
-                return myjson;
+                console.log("API response: " + myjson);
+                client.set(title, response);
+                res.status(200).json({
+                    response
+                });
             });
         }).on("error", (err) => {
             console.log("Error: " + err.message);
