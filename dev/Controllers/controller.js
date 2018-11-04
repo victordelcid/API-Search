@@ -24,6 +24,7 @@ exports.searchAPI = function (req, res) {
             response = reply.toString();                   
         });
         if (response == null) {
+            console.log("No está en caché");
             response = goToAPI(title);
             console.log("API response: " + response.toString()); 
             client.set(title, response);
@@ -31,6 +32,7 @@ exports.searchAPI = function (req, res) {
                 response
             });
         } else {
+            console.log("Está en caché");
             console.log("Redis response: " + response); 
             res.status(200).json({
                 response
