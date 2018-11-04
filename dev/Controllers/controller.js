@@ -26,7 +26,7 @@ exports.searchAPI = function (req, res) {
         if (response == null) {
             console.log("Key is not in cache");
             response = goToAPI(title);
-            console.log("API response: " + JSON.stringify()); 
+            console.log("API response: " + JSON.stringify(response)); 
             client.set(title, response);
             res.status(200).json({
                 response
