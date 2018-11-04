@@ -55,7 +55,7 @@ exports.searchAPI = function (req, res) {
                     return;
                 }
                 console.log("API response: " + data);
-                client.set(title, data.toString());
+                client.set(title, data);
                 res.status(200).json({
                     response
                 });
