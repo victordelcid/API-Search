@@ -1,10 +1,10 @@
 var express = require('express');
 var con = require('../Models/model.js');
-var http = require('http');
+var https = require('https');
 
 exports.searchAPI = function (req, res) {
     let title = req.query.title;
-    console.log(req.query.category);
+    console.log(title);
 
     if (title == null) {
         console.log("No Title");
@@ -15,8 +15,10 @@ exports.searchAPI = function (req, res) {
         return;
     }
 
+    pull(title);
+
     function pull(title) {
-        http.get('https://api.publicapis.org/entries?title=' + title, (resp) => {
+        https.get('https://api.publicapis.org/entries?title=' + title, (resp) => {
             let data = '';
             // A chunk of data has been received
             resp.on('data', (chunk) => {
@@ -24,7 +26,7 @@ exports.searchAPI = function (req, res) {
             });
             // The whole response has been received
             resp.on('end', () => {
-                console.log("pull: https://api.publicapis.org/entries?title=" + title);
+                console.log("Get: https://api.publicapis.org/entries?title=" + title);
                 console.log("Response: " + data);
                 var myjson = JSON.parse(data);
                 if (typeof myjson == "undefined") {
@@ -35,6 +37,9 @@ exports.searchAPI = function (req, res) {
                     })
                     return;
                 }
+                res.status(200).json({
+                    myjson
+                });
             });
 
         }).on("error", (err) => {

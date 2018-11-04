@@ -1,7 +1,7 @@
 {
-  "name": "matching",
+  "name": "API-Search",
   "version": "0.0.1",
-  "description": "Microservicio de Matching",
+  "description": "Microservicio de Search, cache y visualización",
   "main": "index.js",
   "scripts": {
     "dev": "node ./dev/server.js"
@@ -9,7 +9,7 @@
   "keywords": [
     "Microservicio"
   ],
-  "author": "Jbagur",
+  "author": "VDelCid",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
