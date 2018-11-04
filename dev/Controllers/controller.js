@@ -27,6 +27,9 @@ exports.searchAPI = function (req, res) {
         if (response == null) {
             response = goToAPI(title);
             client.set(title, response);
+            res.status(200).json({
+                response
+            });
         } else {
             res.status(200).json({
                 response
