@@ -21,7 +21,8 @@ exports.searchAPI = function (req, res) {
         var response;
         client.get(title, function (err, reply) {
             if (err) throw err;
-            response = reply.toString();                   
+            response = reply.toString();  
+            console.log("Redis response: " + response); 
         });
         if (response == null) {
             console.log("Key is not in cache");
@@ -32,8 +33,7 @@ exports.searchAPI = function (req, res) {
                 response
             });
         } else {
-            console.log("Key is in cache");
-            console.log("Redis response: " + response); 
+            console.log("Key is in cache");            
             res.status(200).json({
                 response
             });
