@@ -1,5 +1,5 @@
 {
-  "name": "API-Search",
+  "name": "APISearch",
   "version": "0.0.1",
   "description": "Microservicio de Search, cache y visualización",
   "main": "index.js",
