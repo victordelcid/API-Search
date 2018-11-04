@@ -45,9 +45,8 @@ exports.searchAPI = function (req, res) {
             // The whole response has been received
             resp.on('end', () => {
                 console.log("Get: https://api.publicapis.org/entries?title=" + title);
-                console.log("Response: " + data);
-                var myjson = JSON.parse(data);
-                if (typeof myjson == "undefined") {
+                var response = JSON.parse(data);
+                if (typeof response == "undefined") {
                     console.log("Matching error");
                     res.status(400).json({
                         status: 400,
@@ -55,10 +54,10 @@ exports.searchAPI = function (req, res) {
                     })
                     return;
                 }
-                console.log("API response: " + myjson);
-                client.set(title, myjson);
+                console.log("API response: " + data);
+                client.set(title, data);
                 res.status(200).json({
-                    myjson
+                    response
                 });
             });
         }).on("error", (err) => {
