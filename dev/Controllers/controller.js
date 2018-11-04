@@ -21,16 +21,17 @@ exports.searchAPI = function (req, res) {
         var response;
         client.get(title, function (err, reply) {
             if (err) throw err;
-            response = reply.toString();
-            console.log(response); // Will print `OK`         
+            response = reply;                   
         });
         if (response == null) {
             response = goToAPI(title);
+            console.log("API response: " + response); 
             client.set(title, response);
             res.status(200).json({
                 response
             });
         } else {
+            console.log("Redis response: " + response); 
             res.status(200).json({
                 response
             });
