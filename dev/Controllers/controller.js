@@ -20,12 +20,12 @@ exports.searchAPI = function (req, res) {
     function pull(title) {
         var response;
         client.get(title, function (err, reply) {
-            if (err) throw err;
-            response = reply.toString();            
-            if (response == null) {
+            if (err) throw err;                     
+            if (reply == null) {
                 console.log("Key is not in cache");
                 goToAPI(title);
             } else {
+                response = reply.toString();
                 console.log("Key is in cache");
                 console.log("Redis response: " + response);
                 response = JSON.parse(reply);
