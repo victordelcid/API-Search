@@ -21,11 +21,11 @@ exports.searchAPI = function (req, res) {
         var response;
         client.get(title, function (err, reply) {
             if (err) throw err;
-            response = reply;                   
+            response = reply.toString();                   
         });
         if (response == null) {
             response = goToAPI(title);
-            console.log("API response: " + response); 
+            console.log("API response: " + response.toString()); 
             client.set(title, response);
             res.status(200).json({
                 response
