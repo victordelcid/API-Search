@@ -1,5 +1,6 @@
 //var express = require('express');
 var redis = require('../Models/redis.js');
+var firehose = require('../Models/firehose.js');
 var https = require('https');
 
 exports.searchAPI = function (req, res) {
@@ -73,6 +74,7 @@ exports.searchAPI = function (req, res) {
                     }
                 }
                 let id = 1;
+                console.log("**save(id,payloads)**");
                 save(id, payloads);
             });
         }).on("error", (err) => {
@@ -99,10 +101,10 @@ exports.searchAPI = function (req, res) {
         firehose.putRecord(params, function (err, data) {
             if (err) console.log(err, err.stack); // an error occurred
             else
-                console.log(data);           // successful response
-            res.status(200).json({
-                RecordId: data.RecordId
-            });
+                console.log("Record uploaded to Firehose: "+data.RecordId);           // successful response
+            //res.status(200).json({
+              //  RecordId: data.RecordId
+            //});
         });
     }
 }
