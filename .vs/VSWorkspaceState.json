@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\dev",
+    "\\dev\\Controllers",
+    "\\dev\\Routes"
   ],
-  "SelectedNode": "\\LICENSE",
+  "SelectedNode": "\\dev\\Routes\\route.js",
   "PreviewInSolutionExplorer": false
 }

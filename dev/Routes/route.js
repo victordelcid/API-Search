@@ -4,4 +4,6 @@ module.exports = function(app){
     
     app.route('/search/')
         .get(searchController.searchAPI);
+    app.route('/history/')
+        .get(searchController.historyAPI);
 };
