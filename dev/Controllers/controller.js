@@ -5,7 +5,7 @@ var https = require('https');
 
 exports.searchAPI = function (req, res) {
     let title = req.query.title;
-    let user_id = req.query.user_id;
+    let user_id = 1; //req.query.user_id;
     console.log(title);
 
     if (title == null) {
