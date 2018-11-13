@@ -39,7 +39,15 @@ exports.searchAPI = function (req, res) {
                 response = reply.toString();
                 console.log("Key is in cache");
                 console.log("Redis response: " + response);
-            }
+                let payloads = {
+                    api1: {
+                        key: title,
+                        response: response
+                    }
+                }
+                console.log("**save(id,payloads)**");
+                save(user_id, payloads);
+            }            
         });        
     }
 
@@ -66,16 +74,16 @@ exports.searchAPI = function (req, res) {
                     response
                 });
                 console.log("Get: https://api.publicapis.org/entries?title=" + title);
-                console.log("API response: " + data);
+                console.log("API response: " + data);  
                 let payloads = {
                     api1: {
                         key: title,
-                        response: data
+                        response: response
                     }
                 }
                 let id = 1;
                 console.log("**save(id,payloads)**");
-                save(id, payloads);
+                save(user_id, payloads);
             });
         }).on("error", (err) => {
             console.log("Error: " + err.message);
