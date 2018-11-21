@@ -101,7 +101,7 @@ exports.searchAPI = function (req, res) {
         var params = {
             DeliveryStreamName: 'QueryStream', /* required */
             Record: { /* required */
-                Data: new Buffer(JSON.stringify(event)+'\n') /* Strings will be Base-64 encoded on your behalf */ /* required */
+                Data: new Buffer.from(JSON.stringify(event)+'\n') /* Strings will be Base-64 encoded on your behalf */ /* required */
             }
         };
 
