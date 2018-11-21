@@ -92,17 +92,16 @@ exports.searchAPI = function (req, res) {
 
     function save(id,payloads) {
         // Event must come as a json with {timestamp, id, payloads: api1: {key:, response:}, api2: {key:, response:}, api3: {key:, response:}}
-
-        let event = {
+        let event = "";
+        event = {
             timestamp: 'Example timestamp',
-            id: id,
+            user_id: id,
             payloads: payloads
-        }
-
+        };
         var params = {
             DeliveryStreamName: 'QueryStream', /* required */
             Record: { /* required */
-                Data: new Buffer.from(event+'\n') /* Strings will be Base-64 encoded on your behalf */ /* required */
+                Data: new Buffer(JSON.stringify(event)+'\n') /* Strings will be Base-64 encoded on your behalf */ /* required */
             }
         };
 
@@ -110,9 +109,6 @@ exports.searchAPI = function (req, res) {
             if (err) console.log(err, err.stack); // an error occurred
             else
                 console.log("Record uploaded to Firehose: "+data.RecordId);           // successful response
-            //res.status(200).json({
-              //  RecordId: data.RecordId
-            //});
         });
     }
 }
