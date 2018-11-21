@@ -4,7 +4,7 @@ var firehose = require('../Models/firehose.js');
 var https = require('https');
 
 exports.searchAPI = function (req, res) {
-    let user_id = parseInt(req.query.uid);
+    let user_id = parseInt(req.query.uid,10);
     let title = (req.query.title);    
     console.log(title);
     console.log(user_id);
