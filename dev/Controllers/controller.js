@@ -7,6 +7,7 @@ exports.searchAPI = function (req, res) {
     let title = req.query.title;
     let user_id = req.query.user_id;
     console.log(title);
+    console.log(user_id);
 
     if (title == null) {
         console.log("No Title");
