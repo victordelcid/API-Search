@@ -1,0 +1,22 @@
+{
+  "name": "APISearch",
+  "version": "0.0.1",
+  "description": "Microservicio de Search, cache y visualización",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./dev/server.js"
+  },
+  "keywords": [
+    "Microservicio"
+  ],
+  "author": "VDelCid",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

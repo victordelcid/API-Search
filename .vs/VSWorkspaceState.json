@@ -3,8 +3,9 @@
     "",
     "\\dev",
     "\\dev\\Controllers",
+    "\\dev\\Models",
     "\\dev\\Routes"
   ],
-  "SelectedNode": "\\dev\\Routes\\route.js",
+  "SelectedNode": "\\dev\\Models\\redis.js",
   "PreviewInSolutionExplorer": false
 }

@@ -77,10 +77,9 @@ exports.searchAPI = function (req, res) {
                 console.log("Get: https://api.publicapis.org/entries?title=" + title);
                 console.log("API response: " + data);  
                 let payloads = {
-                    api1: {
-                        key: title,
-                        response: response
-                    }
+                    api1: reponse,
+                    api2: {'response2'}
+                    api3: {'response3'}
                 }
                 let id = 1;
                 console.log("**save(id,payloads)**");
@@ -94,10 +93,14 @@ exports.searchAPI = function (req, res) {
     function save(id,payloads) {
         // Event must come as a json with {timestamp, id, payloads: api1: {key:, response:}, api2: {key:, response:}, api3: {key:, response:}}
         let event = "";
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let datetime = date + ' ' + time;
         event = {
-            timestamp: 'Example timestamp',
+            timestamp: datetime.toString(),
             user_id: id,
-            payloads: payloads
+            key: title,
+            responses: payloads
         };
         var params = {
             DeliveryStreamName: 'QueryStream', /* required */
