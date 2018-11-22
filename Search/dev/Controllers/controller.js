@@ -93,6 +93,7 @@ exports.searchAPI = function (req, res) {
     function save(id,payloads) {
         // Event must come as a json with {timestamp, id, payloads: api1: {key:, response:}, api2: {key:, response:}, api3: {key:, response:}}
         let event = "";
+        let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         let datetime = date + ' ' + time;
