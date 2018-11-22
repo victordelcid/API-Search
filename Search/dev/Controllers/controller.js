@@ -78,8 +78,8 @@ exports.searchAPI = function (req, res) {
                 console.log("API response: " + data);  
                 let payloads = {
                     api1: reponse,
-                    api2: {'response2'}
-                    api3: {'response3'}
+                    api2: 'response2',
+                    api3: 'response3'
                 }
                 let id = 1;
                 console.log("**save(id,payloads)**");
