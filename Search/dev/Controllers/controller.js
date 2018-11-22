@@ -40,14 +40,13 @@ exports.searchAPI = function (req, res) {
                 response = reply.toString();
                 console.log("Key is in cache");
                 console.log("Redis response: " + response);
-                let payloads = {
-                    api1: {
-                        key: title,
-                        response: response
-                    }
+                let apiresponses = {
+                    api1: reponse,
+                    api2: 'response2',
+                    api3: 'response3'
                 }
                 console.log("**save(id,payloads)**");
-                save(user_id, payloads);
+                save(user_id, apiresponses);
             }            
         });        
     }
@@ -102,6 +101,7 @@ exports.searchAPI = function (req, res) {
             key: title,
             responses: apiresponses
         };
+        console.log(JSON.stringify(event));
         var params = {
             DeliveryStreamName: 'QueryStream', /* required */
             Record: { /* required */
