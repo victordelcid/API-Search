@@ -18,7 +18,7 @@ exports.searchAPI = function (req, res) {
         return;
     }
 
-    if (toString(user_id) == undefined) {
+    if (req.query.uid == null) {
         console.log("No user_id");
         user_id = '_' + Math.random().toString(36).substr(2, 9);
         console.log("Generated user id: ",user_id);
