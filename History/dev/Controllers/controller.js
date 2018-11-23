@@ -24,7 +24,7 @@ exports.historyAPI = function (req, res) {
         }
         else {
             console.log("users::fetchOneByKey::success - " + JSON.stringify(data, null, 2));
-            let response = data["Item"]["responses"];
+            let response = data["Item"];
             //Esto hay que cambiar
             res.status(200).json({
                 response
