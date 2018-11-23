@@ -76,7 +76,7 @@ exports.searchAPI = function (req, res) {
                 console.log("Get: https://api.publicapis.org/entries?title=" + title);
                 console.log("API response: " + data);  
                 let apiresponses = {
-                    api1: reponse,
+                    api1: response,
                     api2: 'response2',
                     api3: 'response3'
                 }
