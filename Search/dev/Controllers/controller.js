@@ -41,7 +41,7 @@ exports.searchAPI = function (req, res) {
                 console.log("Key is in cache");
                 console.log("Redis response: " + response);
                 let apiresponses = {
-                    api1: reponse,
+                    api1: response,
                     api2: 'response2',
                     api3: 'response3'
                 }
