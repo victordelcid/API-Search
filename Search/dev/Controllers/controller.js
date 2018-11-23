@@ -20,7 +20,8 @@ exports.searchAPI = function (req, res) {
 
     if (user_id == null) {
         console.log("No user_id");
-        user_id = 0;
+        user_id = '_' + Math.random().toString(36).substr(2, 9);
+        console.log("Generated user id: ",user_id);
     }
 
     pull(title);
