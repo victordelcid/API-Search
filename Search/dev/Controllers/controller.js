@@ -36,7 +36,7 @@ exports.searchAPI = function (req, res) {
             } else {                
                 response = JSON.parse(reply);
                 res.status(200).json({
-                    response
+                    response: response, uid: user_id
                 });
                 response = reply.toString();
                 console.log("Key is in cache");
@@ -72,7 +72,7 @@ exports.searchAPI = function (req, res) {
                 }                
                 redis.set(title, data);
                 res.status(200).json({
-                    response
+                    response: response, uid: user_id
                 });
                 console.log("Get: https://api.publicapis.org/entries?title=" + title);
                 console.log("API response: " + data);  
