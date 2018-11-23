@@ -7,7 +7,7 @@ exports.searchAPI = function (req, res) {
     let user_id = parseInt(req.query.uid,10);
     let title = (req.query.title);    
     console.log(title);
-    console.log(user_id);
+    console.log(toString(user_id));
 
     if (title == null) {
         console.log("No Title");
@@ -18,7 +18,7 @@ exports.searchAPI = function (req, res) {
         return;
     }
 
-    if (user_id == null || user_id == NaN) {
+    if (user_id == null || user_id == 'NaN') {
         console.log("No user_id");
         user_id = '_' + Math.random().toString(36).substr(2, 9);
         console.log("Generated user id: ",user_id);
