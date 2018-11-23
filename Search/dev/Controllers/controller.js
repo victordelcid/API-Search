@@ -18,7 +18,7 @@ exports.searchAPI = function (req, res) {
         return;
     }
 
-    if (user_id == null || user_id == 'NaN') {
+    if (toString(user_id) == undefined) {
         console.log("No user_id");
         user_id = '_' + Math.random().toString(36).substr(2, 9);
         console.log("Generated user id: ",user_id);
